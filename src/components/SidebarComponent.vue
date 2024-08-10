@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[calc(100vh-60px)] float-left mt-2 overflow-y-scroll w-[250px]">
+    <div class="float-left mt-2 w-full h-full z-30">
       <div class="flex flex-col gap-0">
         <RouterLink
           to="/"
@@ -215,8 +215,8 @@
   import help from "../../public/icons8-help-24.png";
   import sendopinion from "../../public/icons8-send-24.png";
   
-  import store from "@/stores/counter";
-  
+  import store from "@/stores/modalWindow";
+
   
   const handleShowModalWindow = () => {
     store.show()

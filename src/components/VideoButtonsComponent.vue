@@ -13,18 +13,18 @@
             <i class='bx bx-share bx-flip-horizontal' ></i><p>Udostępnij</p>
         </button>
 
-        <button @click="handleShowModalWindow" class="flex flex-row gap-2 bg-[#f2f2f2] rounded-full px-4 py-2 items-center">
+        <button @click="handleShowModalWindow" class="flex flex-row gap-2 bg-[#f2f2f2] rounded-full px-4 py-2 items-center sm:hidden">
             <i class='bx bx-library' ></i><p>Zapisz</p>
         </button>
 
-        <button @click="handleShowModalWindow" class="flex flex-row gap-2 bg-[#f2f2f2] rounded-full px-4 py-2 items-center">
+        <button @click="handleShowModalWindow" class="flex flex-row gap-2 bg-[#f2f2f2] rounded-full px-4 py-2 items-center sm:hidden">
             <i class='bx bx-dots-horizontal-rounded' ></i>
         </button>
     </div>
 </template>
 
 <script setup>
-    import store from '@/stores/counter';
+    import store from '@/stores/modalWindow';
 
     const props = defineProps(["likes"])
 

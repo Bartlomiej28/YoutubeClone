@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[calc(100vh-60px)] overflow-y-scroll flex flex-col gap-4">
+    <div class="full flex flex-col gap-4">
         <PropositionVideoComponent
             v-for="video in videos"
             :key="video.id"

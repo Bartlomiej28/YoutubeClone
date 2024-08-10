@@ -1,23 +1,27 @@
-
 <template>
-    <div class="w-full h-[calc(100vh-60px)] flex flex-row gap-2 p-4">
-        <div class="w-3/4 h-screen flex flex-col">
-            <div class="w-full h-3/4">
-                <iframe :src="`https://www.youtube.com/embed/${videoID}`" class="w-full min-h-full" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="w-full h-auto p-4 text-xl font-bold">
-                {{ movieData.title }}
-            </div>
-            <div class="w-full flex flex-row justify-between">
-                <VideoAuthorComponent :channelTitle="channelTitle" :channelSubscriptions="channelSubscriptions" :channelID="movieData.channelId" :thumbnail="thumbnail"/>
-                <VideoButtonsComponent :likes="movieStatistics.likeCount"/>
-            </div>
+    <div class="w-full min-h-screen h-auto flex flex-col gap-2 p-4 sm:p-0">
+      
+      
+      
+      <div class="h-screen  flex flex-col w-full">
+        <div class="w-full h-4/5">
+          <iframe :src="`https://www.youtube.com/embed/${videoID}`" class="w-full min-h-full" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div class="w-1/4 h-screen flex flex-col gap-2">
-            <PropositionsComponent :videos="videos"/>
+        <div class="w-full h-auto p-4 text-xl font-bold">
+          {{ movieData.title }}
         </div>
+        <div class="w-full flex flex-row sm:flex-col gap-4 justify-between">
+          <VideoAuthorComponent :channelTitle="channelTitle" :channelSubscriptions="channelSubscriptions" :channelID="movieData.channelId" :thumbnail="thumbnail"/>
+          <VideoButtonsComponent :likes="movieStatistics.likeCount"/>
+        </div>
+      </div>
+      
+      <div class="w-full flex flex-col gap-2">
+        <PropositionsComponent :videos="videos"/>
+      </div>
+      
     </div>
-</template>
+  </template>
 
 
 <script setup>

@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full min-h-screen h-auto flex flex-col gap-4 px-8 py-4">
-        <SearchCardComponent 
+    <div class="w-full min-h-screen h-auto flex flex-col gap-4 px-4 py-4">
+        <PropositionVideoComponent 
             v-for="video in videos"
             :key="video.id.videoId"
             :id="video.id.videoId"
@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+    import PropositionVideoComponent from '@/components/PropositionVideoComponent.vue';
     import SearchCardComponent from '@/components/SearchCardComponent.vue';
     import { onMounted, ref } from 'vue';
 
@@ -20,7 +21,8 @@
     console.log(searchKeyWord)
 
     const apiKey = "AIzaSyDkxUFN5EobMKY6kA247KeHOqMwGOsT5h8";
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchKeyWord}&key=${apiKey}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&statistics&maxResults=25&q=${searchKeyWord}&key=${apiKey}`;
+                    
 
     const videos = ref({})
 

@@ -13,7 +13,7 @@
 
 <script setup>
     import { RouterLink } from 'vue-router';
-    import store from '@/stores/counter';
+    import store from '@/stores/modalWindow';
 
     const handleShowModalWindow = () =>{
         store.show();
