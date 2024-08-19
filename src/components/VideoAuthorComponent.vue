@@ -18,6 +18,6 @@
     const handleShowModalWindow = () =>{
         store.show();
     }
-
+    
     const props = defineProps(["channelTitle", "channelSubscriptions", "channelID", "thumbnail"])
 </script>

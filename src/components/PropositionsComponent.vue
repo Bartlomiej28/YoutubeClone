@@ -14,7 +14,5 @@
 
 <script setup>
     import PropositionVideoComponent from './PropositionVideoComponent.vue';
-
     const props = defineProps(['videos']);
-    console.log(props.videos)
 </script>

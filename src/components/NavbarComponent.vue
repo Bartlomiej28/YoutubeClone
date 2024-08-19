@@ -5,7 +5,7 @@
                 <button @click="handleShowSidebar" className="w-10 h-10 rounded-full bg-blue border-none flex justify-center items-center hover:bg-gray-300 transition-all ease-linear duration-300">
                     <i className='bx bx-menu text-2xl'></i>
                 </button>
-                <div className="flex items-center font-bold text-lg">
+                <div @click="handleGoToHome" className="flex items-center font-bold text-lg cursor-pointer">
                     <i className='bx bxl-youtube text-4xl text-red-500'></i>
                     <p class="sm:hidden">YouTube</p>
                 </div>
@@ -22,10 +22,8 @@
                 </div>
             </div>
             <div className="flex items-center sm:hidden">
-                <button className="w-10 h-10 rounded-full bg-white border-none flex justify-center items-center mr-4 hover:bg-gray-300 transition-all ease-linear duration-300">
-                    <i className='bx bx-dots-vertical-rounded text-2xl'></i>
-                </button>
-                <button className="flex items-center justify-center px-2 py-1 text-lightblue bg-white border border-gray-300 rounded-full">
+
+                <button @click="handleShowAlertWindow" className="flex items-center justify-center px-2 py-1 text-lightblue bg-white border border-gray-300 rounded-full">
                     <i className='bx bx-user-circle text-xl mr-1'></i>
                     <div>Zaloguj się</div>
                 </button>
@@ -37,6 +35,9 @@
     import { useRouter } from 'vue-router';
     import { ref } from 'vue';
     import sidebarStore from '@/stores/sidebar'
+    import store from '@/stores/modalWindow';
+
+
     const router = useRouter();
     const keyWord = ref('')
 
@@ -44,8 +45,15 @@
         router.push(`/search/${keyWord.value}`);
     }
 
+    const handleGoToHome = () =>{
+        router.push('/');
+    }
+
+    const handleShowAlertWindow = () =>{
+        store.show();
+    }
+
     const handleShowSidebar = () =>{
         sidebarStore.closeShowSidebar();
-        console.log(sidebarStore.showSidebar)
     }
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <div class="h-full w-full flex flex-col">
+  <LoadingWindowComponent v-if="isLoading"/>
+  <div v-else class="h-full w-full flex flex-col">
     <div class="w-full min-h-[250px] h-auto bg-black">
       <div class="mt-8 mb-8 ml-16 text-white sm:mt-2 sm:mb-2 sm:ml-2">
         <p class="text-lg sm:text-base">YouTube Music</p>
@@ -31,25 +32,29 @@
   <script setup>
   import { ref, onMounted } from "vue";
   import VideoComponent from "../components/VideoComponent.vue";
+  import LoadingWindowComponent from "@/components/LoadingWindowComponent.vue"
   
   const videos = ref([]);
   const apiKey = "AIzaSyDkxUFN5EobMKY6kA247KeHOqMwGOsT5h8";
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&q=*&key=${apiKey}`;
-              
-  
-  onMounted(async () => {
+
+  const isLoading = ref(false)
+
+  const habdleGetMainPageMovies = async() =>{
     try {
+      isLoading.value = true
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data)
       videos.value = data.items;
-      console.log(videos)
+      
     } catch (error) {
-      console.error("Error fetching videos:", error);
+      console.log("Error fetching videos:", error);
+    }finally{
+      isLoading.value = false
     }
+  }
+
+  onMounted(async () => {
+    await habdleGetMainPageMovies();
   });
   </script>
-  
-  <!--
-
-  -->
