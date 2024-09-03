@@ -1,5 +1,5 @@
 <template>
-    <RouterLink :to="`/video/${id}`" :key="$route.path" class="w-full h-64 sm:h-32 md:h-40 bg-white flex flex-row gap-4 p-2" @click="handleGoToNextPage(id)">
+    <RouterLink :to="`/video/${id}`" class="w-full h-64 sm:h-32 md:h-40 bg-white flex flex-row gap-4 p-2" @click="handleGoToNextPage(id)">
         <div class="w-1/3 sm:w-1/2 md:w-1/2 h-full bg-blue-500">
             <img :src="thumbnail" alt="thumbnail" class="w-full h-full object-cover rounded"/>
         </div>
