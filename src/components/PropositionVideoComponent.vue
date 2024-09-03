@@ -15,12 +15,11 @@
 <script setup>
     import { RouterLink } from 'vue-router';
     import { useRouter } from 'vue-router';
-
+    
     const router = useRouter();
     const props = defineProps(["thumbnail", "title", "channelTitle", "id"]);
 
     const handleGoToNextPage = (id) =>{
         router.push({ name: 'video', params: { id } });
-        window.location.reload()
     }
 </script>
