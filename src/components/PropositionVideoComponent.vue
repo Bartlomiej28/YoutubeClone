@@ -21,5 +21,6 @@
 
     const handleGoToNextPage = (id) =>{
         router.push({ name: 'video', params: { id } });
+        location.reload();
     }
 </script>
