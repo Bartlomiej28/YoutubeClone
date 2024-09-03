@@ -8,18 +8,18 @@
                 <p class="text-sm font-medium truncate">{{ title }}</p>
                 <p class="text-xs text-gray-500">{{ channelTitle }}</p>
             </div>
-
         </div>
     </RouterLink>
 </template>
 
 <script setup>
     import { RouterLink } from 'vue-router';
-    import { useRoute } from 'vue-router';
- 
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
     const props = defineProps(["thumbnail", "title", "channelTitle", "id"]);
 
     const handleGoToNextPage = (id) =>{
-        location.replace(`/video/${id}`)
+        router.push({ name: 'video', params: { id } });
     }
 </script>
