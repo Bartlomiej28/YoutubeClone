@@ -9,23 +9,23 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => MainPageView
+      component: MainPageView
     },
     
     {
       path: '/video/:id',
       name: 'video',
-      component: () => VideoPageView
+      component: VideoPageView
     },
     {
       path: '/channel/:id',
       name: 'channel',
-      component: () => ChannelPageView
+      component: ChannelPageView
     },
     {
       path: '/search/:id',
       name: 'search',
-      component: () => SearchPageView
+      component: SearchPageView
     }
   ]
 })
