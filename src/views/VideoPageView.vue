@@ -28,7 +28,7 @@
     import VideoButtonsComponent from '@/components/VideoButtonsComponent.vue';
     import PropositionsComponent from '@/components/PropositionsComponent.vue';
     import { useRoute } from 'vue-router';
-import LoadingWindowComponent from '@/components/LoadingWindowComponent.vue';
+    import LoadingWindowComponent from '@/components/LoadingWindowComponent.vue';
 
     const route = useRoute();
 

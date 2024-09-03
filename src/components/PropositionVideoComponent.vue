@@ -15,7 +15,8 @@
 
 <script setup>
     import { RouterLink } from 'vue-router';
-
+    import { useRoute } from 'vue-router';
+ 
     const props = defineProps(["thumbnail", "title", "channelTitle", "id"]);
 
     const handleGoToNextPage = (id) =>{
