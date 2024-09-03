@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/video/:id',
       name: 'video',
-      component: VideoPageView
+      component: ()=> VideoPageView
     },
     {
       path: '/channel/:id',
