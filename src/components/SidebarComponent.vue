@@ -1,5 +1,5 @@
 <template>
-    <div class="float-left mt-2 w-full h-full overflow-y-scroll z-30">
+    <div class="float-left mt-2 w-full h-full z-30">
       <div class="flex flex-col gap-0">
         <RouterLink
           to="/"
