@@ -41,7 +41,7 @@
           </div>
         </button>
   
-        <button @click="handleShowModalWindow" class="flex items-center px-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
+        <button @click="handleShowModalWindow" class="flex items-center gap-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
           <div class="w-[50px] text-2xl">
             <i class='bx bx-history'></i>
           </div>
@@ -187,11 +187,16 @@
           </div>
         </button>
 
-        <button class="flex items-center px-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
+        <button @click="handleShowModalWindow" class="flex items-center px-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
+          <div class="w-[50px] text-2xl">
+            <img :src="sendopinion" alt="Send Opinion" class="max-w-[20px] max-h-[20px]" />
+          </div>
           <div class="text-sm">
             All rights reserved by Bartłomiej Boczyło
           </div>
         </button>
+
+
           
       </div>
     </div>
