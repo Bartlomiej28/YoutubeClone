@@ -186,6 +186,9 @@
             Prześlij opinię
           </div>
         </button>
+
+        <p class="w-full flex items-center justify-center">All rights reserved by Bartłomiej Boczyło</p>
+          
       </div>
     </div>
   </template>
