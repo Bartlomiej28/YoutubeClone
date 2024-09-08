@@ -1,5 +1,5 @@
 <template>
-    <div class="float-left mt-2 w-full h-full z-30">
+    <div class="float-left mt-2 w-full h-full overflow-y-scroll z-30">
       <div class="flex flex-col gap-0">
         <RouterLink
           to="/"
@@ -41,7 +41,7 @@
           </div>
         </button>
   
-        <button @click="handleShowModalWindow" class="flex items-center bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
+        <button @click="handleShowModalWindow" class="flex items-center px-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
           <div class="w-[50px] text-2xl">
             <i class='bx bx-history'></i>
           </div>
