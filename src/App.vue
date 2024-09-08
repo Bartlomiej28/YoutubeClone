@@ -4,7 +4,7 @@
       <NavbarComponent />
     </div>
     <div class="flex flex-row relative">
-      <div class="fixed top-0 left-0 h-screen overflow-y-scroll w-[250px] z-10 mt-12 bg-white" v-if="sidebarStore.showSidebar">
+      <div class="fixed top-0 left-0 min-h-screen h-auto overflow-y-scroll w-[250px] z-10 mt-12 bg-white" v-if="sidebarStore.showSidebar">
         <SidebarComponent />
       </div>
       <div :class="routerViewClasses">
