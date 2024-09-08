@@ -187,7 +187,11 @@
           </div>
         </button>
 
-        <p class="w-full flex items-center justify-center">All rights reserved by Bartłomiej Boczyło</p>
+        <button class="flex items-center px-4 bg-transparent border-none w-[90%] mx-auto my-1.5 h-8 rounded-lg hover:bg-gray-200">
+          <div class="text-sm">
+            All rights reserved by Bartłomiej Boczyło
+          </div>
+        </button>
           
       </div>
     </div>
