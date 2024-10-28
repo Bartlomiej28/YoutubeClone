@@ -30,15 +30,11 @@
             />
         </div>
         
-<<<<<<< HEAD
-        <!-- ModalWindowComponent pojawia się tylko jeśli showModalWindow jest true -->
         <ModalWindowComponent
             v-if="showModalWindow"
             :closeWindow="handleShowModalWindow"
             :description="channelData.description"
         />
-=======
->>>>>>> fc7966c19a9ba857f80a4d94fcc7e6367bb2bd72
     </div>
 </template>
 
@@ -102,11 +98,9 @@
     onMounted(async () => {
         await getChannelData();
         await getChannelVideos();
-<<<<<<< HEAD
     });
-=======
-    })
+
+})
 
     
->>>>>>> fc7966c19a9ba857f80a4d94fcc7e6367bb2bd72
 </script>
