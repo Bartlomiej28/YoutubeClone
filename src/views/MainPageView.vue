@@ -23,6 +23,7 @@
               :title="video.snippet.title"
               :author="video.snippet.channelTitle"
             />
+          <p class="text-xl font-bold">Osiągnięto limit API. Spróbuj ponownie za 24 godziny.</p> 
         </div>
       </div>
     </div>
