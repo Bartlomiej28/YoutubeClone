@@ -100,7 +100,7 @@
         await getChannelVideos();
     });
 
-})
+
 
     
 </script>
