@@ -14,7 +14,7 @@
                 </div>
                 <div class="flex flex-row gap-4">
                     <p class="truncate w-10/12">{{ channelData.description }}</p>
-                    <button @click="handleShowModalWindow" class="w-2/12 font-bold cursor-pointer">Więcej</button>
+                    <button class="w-2/12 font-bold cursor-pointer">Więcej</button>
                 </div>
                 <button @click="handleShowAlertWindow" class="px-4 py-2 text-white bg-black w-min sm:w-full h-min rounded-full">Subskrybuj</button>
             </div>
@@ -30,12 +30,15 @@
             />
         </div>
         
+<<<<<<< HEAD
         <!-- ModalWindowComponent pojawia się tylko jeśli showModalWindow jest true -->
         <ModalWindowComponent
             v-if="showModalWindow"
             :closeWindow="handleShowModalWindow"
             :description="channelData.description"
         />
+=======
+>>>>>>> fc7966c19a9ba857f80a4d94fcc7e6367bb2bd72
     </div>
 </template>
 
@@ -99,5 +102,11 @@
     onMounted(async () => {
         await getChannelData();
         await getChannelVideos();
+<<<<<<< HEAD
     });
+=======
+    })
+
+    
+>>>>>>> fc7966c19a9ba857f80a4d94fcc7e6367bb2bd72
 </script>
