@@ -3,15 +3,19 @@
         <div class="w-1/3 h-3/4 sm:w-10/12 bg-white rounded-2xl p-4">
             <div class="w-full flex flex-row justify-between">
                 <p class="text-xl font-bold">Informacje</p>
-                <p @click="props.closeWindow"><i class='bx bx-x text-2xl cursor-pointer'></i></p>
+                <p @click="handleCloseWindow"><i class='bx bx-x text-2xl cursor-pointer'></i></p>
             </div>
             <div>
-                {{ props.description }}
+                {{ModalWindowDescriptionStore.descriptionText }}
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-    const props = defineProps(["closeWindow", "description"])
+    import ModalWindowDescriptionStore from '@/stores/modalDescription';
+
+    const handleCloseWindow = () =>{
+        ModalWindowDescriptionStore.close();
+    }
 </script>

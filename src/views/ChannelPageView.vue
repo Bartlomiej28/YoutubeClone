@@ -9,7 +9,7 @@
                 <p class="font-bold text-5xl w-full">{{channelData.title}}</p>
                 <div class="flex flex-row gap-4 items-center">
                     <p>{{ channelStatistics.subscriberCount }} subskrybcji</p>
-                    <i class='bx bx-minus bx-rotate-90 text-2xl' ></i>
+                    <i class='bx bx-minus bx-rotate-90 text-2xl'></i>
                     <p>{{ channelStatistics.videoCount }} filmy</p>
                 </div>
                 <div class="flex flex-row gap-4">
@@ -20,16 +20,25 @@
             </div>
         </div>
         <div class="w-full h-auto flex flex-wrap justify-center">
-            <VideoComponent v-for="video in videos"
+            <VideoComponent
+                v-for="video in videos"
+                :key="video.id?.videoId"
                 :id="video.id?.videoId"
                 :videoPhoto="video.snippet.thumbnails.high.url"
                 :title="video.snippet.title"
                 :author="video.snippet.channelTitle"
             />
         </div>
-        <ModalWindowComponent v-if="showModalWindow" :closeWindow="handleShowModalWindow" :description="channelData.description"/>
+        
+        <!-- ModalWindowComponent pojawia się tylko jeśli showModalWindow jest true -->
+        <ModalWindowComponent
+            v-if="showModalWindow"
+            :closeWindow="handleShowModalWindow"
+            :description="channelData.description"
+        />
     </div>
 </template>
+
 
 <script setup>
     import { onMounted, ref } from 'vue';
@@ -38,60 +47,57 @@
     import { useRoute } from 'vue-router';
     import LoadingWindowComponent from '@/components/LoadingWindowComponent.vue';
     import store from '@/stores/modalWindow';
+    import ModalWindowDescriptionStore from '@/stores/modalDescription';
 
     const route = useRoute();
     const apiKey = "AIzaSyDkxUFN5EobMKY6kA247KeHOqMwGOsT5h8";
-    
-                
-    const channelStatistics = ref({})
-    const channelData = ref({})
-    const channelThumbnail = ref("")
-    console.log(route.params.id)
 
-    const handleShowAlertWindow = () =>{
+    const channelStatistics = ref({});
+    const channelData = ref({});
+    const channelThumbnail = ref("");
+    const videos = ref([]);
+    const isLaoding = ref(false);
+
+    const handleShowModalWindow = () => {
+        
+        ModalWindowDescriptionStore.setDescriptionText(channelData.value.description);
+        ModalWindowDescriptionStore.show();
+    };
+
+    const handleShowAlertWindow = () => {
         store.show();
-    }
+    };
 
-    const getChannelData = async()=>{
-        const url =`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${route.params.id}&key=${apiKey}`
+    const getChannelData = async () => {
+        const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${route.params.id}&key=${apiKey}`;
         try {
-            const resposne = await fetch(url);
-            const data = await resposne.json();
-            channelData.value = data.items[0].snippet
-            channelThumbnail.value = data.items[0].snippet.thumbnails.default.url
-            channelStatistics.value = data.items[0].statistics
-            
+            const response = await fetch(url);
+            const data = await response.json();
+            channelData.value = data.items[0].snippet;
+            channelThumbnail.value = data.items[0].snippet.thumbnails.default.url;
+            channelStatistics.value = data.items[0].statistics;
         } catch (error) {
             console.log("Error fetching channel details:", error);
         }
-    }
+    };
 
-    const videos = ref([]);
-    const isLaoding = ref(false)
-
-    const getChannelVideos = async()=>{
-        const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${route.params.id}&type=video&maxResults=50&key=${apiKey}`
+    const getChannelVideos = async () => {
+        const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${route.params.id}&type=video&maxResults=50&key=${apiKey}`;
         try {
-            isLaoding.value = true
-            const resposne = await fetch(url);
-            const data = await resposne.json();
-            videos.value = data.items
-            console.log(videos.value)
+            isLaoding.value = true;
+            const response = await fetch(url);
+            const data = await response.json();
+            videos.value = data.items;
+            console.log(videos.value);
         } catch (error) {
             console.log("Error fetching channel videos:", error);
-        }finally{
-            isLaoding.value = false
+        } finally {
+            isLaoding.value = false;
         }
-    }
+    };
 
-    onMounted(async()=>{
+    onMounted(async () => {
         await getChannelData();
         await getChannelVideos();
-    })
-
-    const showModalWindow = ref(false)
-
-    const handleShowModalWindow = () =>{
-        showModalWindow.value = !showModalWindow.value;
-    }
+    });
 </script>

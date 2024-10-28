@@ -12,6 +12,7 @@
       </div>
     </div>
     <WarningModalWindowComponent v-if="store.showModalWindow"/>
+    <ModalWindowComponent v-if="ModalWindowDescriptionStore.showDescription"/>
   </div>
 </template>
 
@@ -22,8 +23,8 @@
   import WarningModalWindowComponent from "./components/WarningModalWindowComponent.vue";
   import store from "./stores/modalWindow";
   import sidebarStore from "./stores/sidebar";
-
-
+  import ModalWindowDescriptionStore from "@/stores/modalDescription"
+  import ModalWindowComponent from "@/components/ModalWindowComponent.vue"
   const routerViewClasses = computed(() => {
     return [
       'h-[calc(100vh-50px)]',

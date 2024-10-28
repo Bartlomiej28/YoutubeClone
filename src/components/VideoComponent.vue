@@ -1,7 +1,7 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+  import { RouterLink } from 'vue-router';
 
-const props = defineProps(["key","videoPhoto", "title", "author", "id"]);
+  const props = defineProps(["key","videoPhoto", "title", "author", "id"]);
 </script>
 
 <template>
